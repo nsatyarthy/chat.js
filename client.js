@@ -12,7 +12,8 @@ readline.cursorTo(process.stdout, 0, 0);
 readline.clearScreenDown(process.stdout);
 
 const username = process.argv[process.argv.length - 1];
-const client = net.createConnection({ port: 5000 }, () => {
+const hostname = process.argv[process.argv.length - 2];
+const client = net.createConnection({ port: 5000, host: hostname }, () => {
     var payload = common.encrypt('join:' + username);
     client.write(payload);
 });

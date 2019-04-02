@@ -1,6 +1,7 @@
 const net = require('net');
 const common = require('./common')
 
+const hostname = process.argv[process.argv.length - 1];
 var clients = [];
 
 net.createServer(function (socket) {
@@ -32,6 +33,6 @@ net.createServer(function (socket) {
         });
     }
 
-}).listen(5000);
+}).listen(5000, hostname);
 
 console.log("[Running]");
